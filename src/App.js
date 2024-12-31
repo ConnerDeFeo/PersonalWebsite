@@ -16,11 +16,11 @@ function Navigation(){
 
   return (
     <Navbar className='d-flex bg-black'>
-      <Button color='light' className="navButton" onClick={() => handleNavigation('/')}>Home</Button>
+      <Button color='light' className="navButton" onClick={() => handleNavigation('/PersonalWebsite')}>Home</Button>
       <NavbarText className="text-light">
         <p>Rochester, NY | Full-Stack Developer</p>
       </NavbarText>
-      <Button color="light" className="navButton" onClick={() => handleNavigation('/contact')}>Contact</Button>
+      <Button color="light" className="navButton" onClick={() => handleNavigation('/PersonalWebsite/contact')}>Contact</Button>
     </Navbar>
   );
 };
