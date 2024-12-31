@@ -1,0 +1,106 @@
+body{
+    background-color: #212529;
+    color: white;
+}
+h1{
+    font-size: 5vw;
+}
+iframe{
+    height: 80vh;
+}
+p,.submitButton{
+    padding-top:0.5vh;
+    font-size: 1.25vw;
+}
+.backToTop:hover{
+    color: orangered;
+    cursor: pointer;
+}
+.cardImageCustom{
+    height: 60vh;   
+    object-fit: cover;
+}
+.cardText{
+    font-size: 15vw;
+    color: orangered;
+    margin-right:40vw;
+    font-weight: bold;
+    -webkit-text-stroke: 0.75vh black;
+    line-height: 1.2;
+}
+.contactImageCustom{
+    height: 80vh;
+    width: 100%;
+}
+.formNameEmail{
+    height: 7vh;
+}
+.formMessage{
+    height: 14vh;
+}
+.formNameEmail,.formMessage{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+.decorativeLine{
+    background-color: black;
+    height: 0.29vh;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.linkedin:hover,.submitButton:hover{
+    color: orangered;
+}
+.navButton{
+    height: 5vh;
+    width: 12vw;
+    font-size: 1vw;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 2vw;
+}
+.navButton:hover{
+    background-color: orangered;
+    border: 0.15vw solid black;
+}
+.navbarMenu{
+    background-color: white;
+}
+.navSpacing{
+    margin-left:0.5vw;
+    margin-right: 0.5vw;
+}
+.professionalStyling{
+    width: 20vw;
+}
+.professionalStyling,.contactImageCustom{
+    object-fit:cover;
+    box-shadow:0.35vw 0.35vw rgb(255, 255, 255);
+    border:0.35vw groove black;
+    border-radius: 0.25vw;
+}
+.projectCardCustom{
+    height: 70vh;
+}
+.projectCardCustom:hover,.navButton:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+.pTop{
+    padding-top:8vh;
+    padding-bottom:2vh;
+}
+.skillImages{
+    width: 4vw;
+    height: 8vh;
+    background-color: lightgray;
+    padding: 0.5vw;
+    border-radius: 1vw;
+    color: black;
+    font-size: 1vw;
+}
+.submitButton {
+    color: white; /* Initial text color */
+}
