@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.82755deb.css",
+    "main.js": "/static/js/main.9d2c4872.js",
+    "static/js/453.b3efecc2.chunk.js": "/static/js/453.b3efecc2.chunk.js",
+    "static/media/Start.jpg": "/static/media/Start.53a0c2c8dedf90a023fb.jpg",
+    "static/media/Track.jpg": "/static/media/Track.3ef81ac1cb0da06f99d8.jpg",
+    "static/media/Professional.jpg": "/static/media/Professional.e602647ced7bd2e51e9c.jpg",
+    "static/media/ChatRoom.jpg": "/static/media/ChatRoom.6b4f7c6070c4996ce718.jpg",
+    "static/media/SaveTheBees.jpg": "/static/media/SaveTheBees.202c7c71aa627f9b5832.jpg",
+    "static/media/PersonalWebsite.jpg": "/static/media/PersonalWebsite.79d8058c4e8191bafed5.jpg",
+    "static/media/NightClub.jpg": "/static/media/NightClub.961c15584d41452158a7.jpg",
+    "static/media/JavaFX.webp": "/static/media/JavaFX.15bdcff0bc3c05a2a5c4.webp",
+    "static/media/linux.webp": "/static/media/linux.3d200b523fe1d17fda03.webp",
+    "static/media/React.webp": "/static/media/React.29f390f731ac9139fcfb.webp",
+    "static/media/agile.webp": "/static/media/agile.ae1d26f1fa6bdc096f97.webp",
+    "static/media/wireshark.webp": "/static/media/wireshark.921840f455e81255698b.webp",
+    "static/media/Java.webp": "/static/media/Java.b11976d786bfc100d3b3.webp",
+    "static/media/flask.webp": "/static/media/flask.184883877ac16085b463.webp",
+    "static/media/scrum.webp": "/static/media/scrum.a0a8847fc303a98afce5.webp",
+    "static/media/css.webp": "/static/media/css.e199bcd22bbd48ad1c85.webp",
+    "static/media/nodeJS.webp": "/static/media/nodeJS.b92780500320f1ad72d3.webp",
+    "static/media/html.webp": "/static/media/html.a33f2b697a5eeb7b440f.webp",
+    "static/media/python.webp": "/static/media/python.c4de782e2abbcf5f3a98.webp",
+    "static/media/angular.webp": "/static/media/angular.a405c3fd88f0accae093.webp",
+    "index.html": "/index.html",
+    "static/media/C.webp": "/static/media/C.ca40e8c970421c44c0bd.webp",
+    "static/media/js.webp": "/static/media/js.6916c142b804f81d7410.webp",
+    "static/media/Windows.webp": "/static/media/Windows.90f706e4c35c92a3e4f1.webp",
+    "static/media/C++.webp": "/static/media/C++.86095c3094ebf5a36c36.webp",
+    "main.82755deb.css.map": "/static/css/main.82755deb.css.map",
+    "main.9d2c4872.js.map": "/static/js/main.9d2c4872.js.map",
+    "453.b3efecc2.chunk.js.map": "/static/js/453.b3efecc2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82755deb.css",
+    "static/js/main.9d2c4872.js"
+  ]
+}
