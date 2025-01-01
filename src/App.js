@@ -16,7 +16,7 @@ function Navigation(){
 
   return (
     <Navbar className='d-flex bg-black Navbar'>
-      <Button color='light' className="navButton" onClick={() => handleNavigation('/PersonalWebsite/')}>Home</Button>
+      <Button color='light' className="navButton" onClick={() => handleNavigation('/PersonalWebsite')}>Home</Button>
       <Button color="light" className="navButton" onClick={() => handleNavigation('/PersonalWebsite/contact')}>Contact</Button>
     </Navbar>
   );
