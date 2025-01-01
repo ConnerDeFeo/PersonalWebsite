@@ -52,7 +52,7 @@ function Projects(){
   function project(image, alt, text, date){
     return(
       <Col className='col-12 col-md-6'>
-        <Card className='m-3 projectCardCustom' onClick={()=>navigate('/PersonalWebsite/'+alt)}>
+        <Card className='m-3 projectCardCustom' onClick={()=>navigate(alt)}>
           <CardImg src={image} alt={alt} className='cardImageCustom'/>
           <CardFooter><Container><Row><Col style={{position:'absolute'}}><strong>{text}</strong></Col><Col className='text-end'><strong>{date}</strong></Col></Row></Container></CardFooter>
         </Card>
