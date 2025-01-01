@@ -83,9 +83,9 @@ function AboutMe(){
           <p className={centeredText}><strong>I am currently attending the Rochester Institute of Technology, pursuing a BS in 
             Software Engineering with a minor in Accounting. I am part of the varsity track team and currently hold the school record in the 500m dash.</strong><br/></p>
           <img src={Professional} alt='Professional' className='mx-auto professionalStyling'/>
-          <br/><p className={centeredText}>I spend a good part of my free time reading books relating to finance/investing, software, philosophy, and phycology 
+          <br/><p className={centeredText}>I spend a good part of my free time reading books relating to finance/investing, software, philosophy, and psychology 
           (check out "The Library" when it's finished). If I'm not reading then I'm either working on a personal project, doing reaserch on companies to invest in, 
-          or working out <em>(I need a girlfriend).</em></p>
+          or working out.</p>
           <Button as="a" href='https://drive.google.com/file/d/1MllOycx4jSRmRuv3i8FJHC4pTABtuR9P/view?usp=drive_link' 
           target="_Blank" color='light' className='mx-auto resumeDownload my-5 border border-black'>Download Resume</Button>
       </div>

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'; 
+import { Routes, Route, useLocation, useNavigate, HashRouter } from 'react-router-dom'; 
 import Home from './Home';
 import Contact from './Contact';
 import { Button, Col, Container, Navbar, Row } from 'reactstrap';
@@ -25,7 +25,7 @@ function Navigation(){
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navigation/>
       <Routes>
         <Route path="/PersonalWebsite" element={<Home/>} />
@@ -42,7 +42,7 @@ const App = () => {
               <Col><p onClick={()=>window.scroll({top:0, behavior:'smooth'})} className='backToTop d-inline-block'>BACK TO TOP</p></Col>
           </Row>
       </Container>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
