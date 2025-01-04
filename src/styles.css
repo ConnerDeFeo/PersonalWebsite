@@ -23,7 +23,7 @@ p,.submitButton{
 .cardText{
     color: orangered;
     line-height: 1.3;
-    -webkit-text-stroke: 0.6vw black;
+    -webkit-text-stroke: 0.3vw black;
     font-weight: bold;
     margin-right:35vw;
     font-size: 15vw;
