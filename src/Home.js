@@ -1,4 +1,4 @@
-import { Button, Card, CardFooter, CardImg, CardImgOverlay, CardTitle, Col, Container, Row } from 'reactstrap';
+import { Button, Card, CardFooter, CardImg, Col, Container, Row } from 'reactstrap';
 import StartImage from './images/Start.jpg'
 import SaveTheBees from './images/SaveTheBees.jpg'
 import NightClubs from './images/NightClub.jpg'
@@ -30,22 +30,6 @@ const skillImages = {'agile':agile,'angular':angular,'c':c,'c++':cPlusPlus,'css'
 'js':js,'linux':linux,'nodejs':nodejs,'oop':oop,'python':python,'react':react,'scrum':scrum,'spring':spring,'windows':windows,'wireshark':wireshark};
 
 const centeredText="col-10 col-lg-6 mx-auto text-center";
-
-function Header(){
-  /*Basic navbar. Div tags are used here to seperate the left and right sections
-  using a flex container. navSpacing is a custom css class that keeps that keeps spacing consistant.*/
-  return(
-    <>
-      <Card className='bg-dark'>
-        <CardImg src={StartImage} alt='Start Image 400m'/>
-        <CardImgOverlay>
-          <CardTitle className='cardText'>Conner DeFeo</CardTitle>
-        </CardImgOverlay>
-      </Card>
-      <p className={centeredText}>Photo: Vayfor</p>
-    </>
-  );
-}
 
 function Projects(){
   const navigate=useNavigate();
@@ -107,19 +91,11 @@ function Skills(){
   );
 }
 
-// function TheLibrary(){
-//   return(
-//       <div className={centeredText}>
-//           <h1>The Library</h1>
-//           <p>Under Construction...</p>
-//       </div>
-//   );
-// }
-
 function Home() {  
   return (
     <div>
-      <Header/>
+      <img src={StartImage} alt='Start 400m' style={{width:'100%'}}/>
+      <p className={centeredText}>Photo: Vayfor</p>
       <Projects />
       <AboutMe />
       <Skills />
