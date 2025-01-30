@@ -70,7 +70,7 @@ function AboutMe(){
           <br/><p className={centeredText}>I spend a good part of my free time reading books relating to finance/investing, software, philosophy, and psychology 
           (check out "The Library" when it's finished). If I'm not reading then I'm either working on a personal project, doing reaserch on companies to invest in, 
           or working out.</p>
-          <Button as="a" href='https://drive.google.com/file/d/1MllOycx4jSRmRuv3i8FJHC4pTABtuR9P/view?usp=drive_link' 
+          <Button as="a" href='https://drive.google.com/file/d/1HYYNjbfqwSLL6cQ8Jdd9br0qHx-A3Rv4/view?usp=sharing' 
           target="_Blank" color='light' className='mx-auto resumeDownload my-5 border border-black'>Download Resume</Button>
       </div>
   );
