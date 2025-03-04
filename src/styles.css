@@ -4,6 +4,7 @@ body{
 }
 h1{
     font-size:50px;
+    text-align: center;
 }
 iframe{
     height: 40vh;
@@ -24,6 +25,9 @@ p,.submitButton{
     height: 80vh;
     width: 100%;
 }
+.connerDeFeoNavigation{
+    font-size: 24px;
+}
 .formNameEmail{
     height: 7vh;
 }
@@ -41,11 +45,17 @@ p,.submitButton{
     margin-left: auto;
     margin-right: auto;
 }
+.githubLink{
+    text-decoration: none;
+}
+.githubLink:hover{
+    text-decoration: underline;
+}
 .linkedin:hover,.submitButton:hover{
     color: orangered;
 }
 .navbar{
-    height: 10vh;
+    height: 100px;
 }
 .navButton{
     width: 125px;
@@ -111,5 +121,8 @@ p,.submitButton{
     .navButton{
         width: 150px;
         font-size: 20px;
+    }
+    .connerDeFeoNavigation{
+        font-size: 42px;
     }
 }
