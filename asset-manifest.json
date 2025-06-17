@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.b2695fc2.css",
-    "main.js": "/static/js/main.73ca70d9.js",
+    "main.css": "/static/css/main.978d3b90.css",
+    "main.js": "/static/js/main.44d448b8.js",
     "static/js/453.b3efecc2.chunk.js": "/static/js/453.b3efecc2.chunk.js",
     "static/media/ConnerDeFeo.png": "/static/media/ConnerDeFeo.a33af85ee1afdd3dfab1.png",
     "static/media/Track.jpg": "/static/media/Track.3ef81ac1cb0da06f99d8.jpg",
     "static/media/Professional.jpg": "/static/media/Professional.e602647ced7bd2e51e9c.jpg",
     "static/media/ChatRoom.jpg": "/static/media/ChatRoom.69855c79c2d7c5eb71aa.jpg",
     "static/media/SaveTheBees.jpg": "/static/media/SaveTheBees.202c7c71aa627f9b5832.jpg",
+    "static/media/mongo.png": "/static/media/mongo.db97f1f2e6a7f042aec2.png",
     "static/media/PersonalWebsite.jpg": "/static/media/PersonalWebsite.ed98c5a6b77f76bba39b.jpg",
     "static/media/NightClub.jpg": "/static/media/NightClub.961c15584d41452158a7.jpg",
+    "static/media/cSharp.webp": "/static/media/cSharp.9cc375d191337067a65a.webp",
+    "static/media/aws.webp": "/static/media/aws.f62cc39dd109a82615c0.webp",
     "static/media/JavaFX.webp": "/static/media/JavaFX.15bdcff0bc3c05a2a5c4.webp",
+    "static/media/asp.net.svg": "/static/media/asp.net.cb6c43d550f4ed351cda9181b7cb7fd8.svg",
     "static/media/linux.webp": "/static/media/linux.3d200b523fe1d17fda03.webp",
     "static/media/React.webp": "/static/media/React.29f390f731ac9139fcfb.webp",
     "static/media/agile.webp": "/static/media/agile.ae1d26f1fa6bdc096f97.webp",
@@ -28,12 +32,12 @@
     "static/media/js.webp": "/static/media/js.6916c142b804f81d7410.webp",
     "static/media/Windows.webp": "/static/media/Windows.90f706e4c35c92a3e4f1.webp",
     "static/media/C++.webp": "/static/media/C++.86095c3094ebf5a36c36.webp",
-    "main.b2695fc2.css.map": "/static/css/main.b2695fc2.css.map",
-    "main.73ca70d9.js.map": "/static/js/main.73ca70d9.js.map",
+    "main.978d3b90.css.map": "/static/css/main.978d3b90.css.map",
+    "main.44d448b8.js.map": "/static/js/main.44d448b8.js.map",
     "453.b3efecc2.chunk.js.map": "/static/js/453.b3efecc2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2695fc2.css",
-    "static/js/main.73ca70d9.js"
+    "static/css/main.978d3b90.css",
+    "static/js/main.44d448b8.js"
   ]
 }
