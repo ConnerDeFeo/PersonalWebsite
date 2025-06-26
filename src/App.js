@@ -17,7 +17,6 @@ function Navigation(){
   return (
     <Navbar className='d-flex bg-black navbar'>
       <Button color='light' className="navButton" onClick={() => handleNavigation('/')}>Home</Button>
-      <p className='connerDeFeoNavigation'>Conner DeFeo</p>
       <Button color="light" className="navButton" onClick={() => handleNavigation('/contact')}>Contact</Button>
     </Navbar>
   );

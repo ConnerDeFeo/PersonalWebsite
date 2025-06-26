@@ -25,9 +25,14 @@ import scrum from './images/skills/scrum.webp';
 import spring from './images/skills/spring.png';
 import windows from './images/skills/Windows.webp';
 import wireshark from './images/skills/wireshark.webp';
+import aspNet from './images/skills/asp.net.svg';
+import cSharp from './images/skills/cSharp.webp';
+import aws from './images/skills/aws.webp';
+import mongo from './images/skills/mongo.png';
 
 const skillImages = {'agile':agile,'angular':angular,'c':c,'c++':cPlusPlus,'css':css,'flask':flask,'html':html,'java':java,'javaFx':javaFx,
-'js':js,'linux':linux,'nodejs':nodejs,'oop':oop,'python':python,'react':react,'scrum':scrum,'spring':spring,'windows':windows,'wireshark':wireshark};
+'js':js,'linux':linux,'nodejs':nodejs,'oop':oop,'python':python,'react':react,'scrum':scrum,'spring':spring,'windows':windows,'wireshark':wireshark,
+'aspNet':aspNet,'cSharp':cSharp,'aws':aws,'mongo':mongo};
 
 const centeredText="col-10 col-lg-6 mx-auto text-center";
 
