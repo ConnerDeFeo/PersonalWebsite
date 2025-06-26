@@ -83,7 +83,7 @@ function Home() {
                 {keys.map((key,index)=>(<Col xs={6} sm={6} md={2}><img src={skillImages[key]} alt='key' key={index} className='skillImages my-3'/></Col>))}
             </Row>
         </Container>
-        <h1>Experience</h1>
+        <h1 className='mt-5'>Experience</h1>
         <div className='d-grid w-75 mx-auto my-5'>
             <div className='mb-4'>
                 <h3 className='my-3'>Accesible Learning Labs | Rochester, NY | January 2025-Present</h3>
