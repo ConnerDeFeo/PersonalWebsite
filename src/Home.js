@@ -1,38 +1,11 @@
 import { Button, Card, CardFooter, CardImg, Col, Container, Row } from 'reactstrap';
-import HeaderImage from './images/ConnerDeFeo.png'
+import { useNavigate } from 'react-router-dom';
 import SaveTheBees from './images/SaveTheBees.jpg'
 import NightClubs from './images/NightClub.jpg'
 import ChatRoom from './images/ChatRoom.jpg'
-import PersonalWebsite from './images/PersonalWebsite.jpg'
+import HabitTracker from './images/HabitTracker.PNG'
 import Professional from './images/Professional.jpg'
-import { useNavigate } from 'react-router-dom';
-import agile from './images/skills/agile.webp';
-import angular from './images/skills/angular.webp';
-import c from './images/skills/C.webp';
-import cPlusPlus from './images/skills/C++.webp';
-import css from './images/skills/css.webp';
-import flask from './images/skills/flask.webp';
-import html from './images/skills/html.webp';
-import java from './images/skills/Java.webp';
-import javaFx from './images/skills/JavaFX.webp';
-import js from './images/skills/js.webp';
-import linux from './images/skills/linux.webp';
-import nodejs from './images/skills/nodeJS.webp';
-import oop from './images/skills/OOP.png';
-import python from './images/skills/python.webp';
-import react from './images/skills/React.webp';
-import scrum from './images/skills/scrum.webp';
-import spring from './images/skills/spring.png';
-import windows from './images/skills/Windows.webp';
-import wireshark from './images/skills/wireshark.webp';
-import aspNet from './images/skills/asp.net.svg';
-import cSharp from './images/skills/cSharp.webp';
-import aws from './images/skills/aws.webp';
-import mongo from './images/skills/mongo.png';
-
-const skillImages = {'agile':agile,'angular':angular,'c':c,'c++':cPlusPlus,'css':css,'flask':flask,'html':html,'java':java,'javaFx':javaFx,
-'js':js,'linux':linux,'nodejs':nodejs,'oop':oop,'python':python,'react':react,'scrum':scrum,'spring':spring,'windows':windows,'wireshark':wireshark,
-'aspNet':aspNet,'cSharp':cSharp,'aws':aws,'mongo':mongo};
+import SkillImages from './data/SkillImages';
 
 const centeredText="col-10 col-lg-6 mx-auto text-center";
 
@@ -50,16 +23,14 @@ function Project(image, alt, text, date){
 
 function Home() { 
 
-  const keys=Object.keys(skillImages);
+  const keys=Object.keys(SkillImages);
 
   return (
     <div>
-        <img src={HeaderImage} alt='Start 400m' style={{width:'100%'}}/>
-        <p className={centeredText}>Photo: Vayfor</p>
-        <h1>Recent Projects - <a href='https://github.com/ConnerDeFeo/' rel="noreferrer" target="_blank"className='githubLink'>Github</a></h1>
+        <h1 className='my-3'>Recent Projects - <a href='https://github.com/ConnerDeFeo/' rel="noreferrer" target="_blank" className="githubLink">Github</a></h1>
         <Container className='mw-100'>
             <Row>
-              {Project(PersonalWebsite,"personalWebsite",<>This Website! - <em>Personal</em></>,<>2025</>)}
+              {Project(HabitTracker,"habitTracker",<>HabitTracker - <em>Personal</em></>,<>2025</>)}
               {Project(SaveTheBees,"saveTheBees",<>Save The Bees - <em>Intro to SWEN</em></>,<>2024</>)}
             </Row>
             <Row>
@@ -80,7 +51,7 @@ function Home() {
         <h1 className={"my-4"}>Skills</h1>
         <Container className="text-center mw-80">
             <Row >
-                {keys.map((key,index)=>(<Col xs={6} sm={6} md={2}><img src={skillImages[key]} alt='key' key={index} className='skillImages my-3'/></Col>))}
+                {keys.map((key,index)=>(<Col xs={6} sm={6} md={2}><img src={SkillImages[key]} alt='key' key={index} className='skillImages my-3'/></Col>))}
             </Row>
         </Container>
         <h1 className='mt-5'>Experience</h1>
