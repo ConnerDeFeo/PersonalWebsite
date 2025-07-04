@@ -13,7 +13,7 @@ function Project(image, alt, text, date){
   const navigate=useNavigate();
   return(
     <Col className='col-12 col-md-6'>
-      <Card className='m-3 projectCardCustom' onClick={()=>navigate(alt)}>
+      <Card className='m-3 projectCardCustom cursor-pointer' role="button" onClick={()=>navigate(alt)}>
         <CardImg src={image} alt={alt} className='cardImageCustom'/>
         <CardFooter><Container><Row><Col style={{position:'absolute'}}><strong>{text}</strong></Col><Col className='text-end'><strong>{date}</strong></Col></Row></Container></CardFooter>
       </Card>
@@ -30,7 +30,7 @@ function Home() {
         <h1 className='my-3'>Recent Projects - <a href='https://github.com/ConnerDeFeo/' rel="noreferrer" target="_blank" className="githubLink">Github</a></h1>
         <Container className='mw-100'>
             <Row>
-              {Project(HabitTracker,"habitTracker",<>HabitTracker - <em>Personal</em></>,<>2025</>)}
+              {Project(HabitTracker,"kaizenHabits",<>HabitTracker - <em>Personal</em></>,<>2025</>)}
               {Project(SaveTheBees,"saveTheBees",<>Save The Bees - <em>Intro to SWEN</em></>,<>2024</>)}
             </Row>
             <Row>
