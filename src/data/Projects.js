@@ -42,18 +42,13 @@ const Projects = {
     "Kaizen Habits": {
         title: "KAIZEN HABITS",
         type: "Personal",
-        languages: "React Ts, ASP.NET, MongoDB, AWS BeanStalk, AWS Amplify, AWS Cloudfront, Nginx, XUnit",
+        languages: "React Ts, ASP.NET, MongoDB Atlas, AWS BeanStalk, AWS Amplify, AWS Cloudfront, AWS EC2, AWS Lambda, AWS S3, Nginx, XUnit",
         date: "2025",
-        video: "https://www.youtube.com/embed/SlBoB0DIEW4",
-        description: `Full stack web application deployed to AWS.
-        Database hosted by MongoDB Atlas, server by AWS Beanstalk, and front end by AWS Amplify.
-        AWS CloudFront is used to allow HTTPS requests while using restrictive browsers such as Safari that restrict cross-domain cookies.
-        CloudFront masks the server and front end behind the same domain.
-        Ideated and designed application using Figma and UML diagrams.
-        Secure password hashing and storing over HTTPS requests.
-        Session keys are held for persistent authentication.
-        Users can modify habits and view long-term statistics such as their current streak or longest streak, and see how many days they stuck with completing all their habits.
-        Login Using Username: Guest, Password: HabitTracker, in order to test the application yourself!`,
+        video: "https://www.youtube.com/embed/3DL5z9T_rYI",
+        description: `Developed and deployed a full-stack web application leveraging modern cloud infrastructure and scalable technologies.
+        The backend server is hosted on AWS Elastic Beanstalk, front-end on aws amplify, and the database is stored on MongoDB Atlas.
+        Photos are stored in a S3 bucket. AWS cloudfront and lambda are used in order to allow cross domain cookies for restrictive browsers.
+        (such as safari).`,
         link:"https://kaizenhabits.net",
         linkTitle:"kaizenhabits.net"
     }

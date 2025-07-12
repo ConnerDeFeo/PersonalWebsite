@@ -4,9 +4,6 @@ import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
 function Contact(){
-    const [name,setName]=useState('');
-    const [eMail,setEMail]=useState('');
-    const [message,setMessage]=useState('');
 
     const sendEmail=(e)=>{
         e.preventDefault();
@@ -26,9 +23,9 @@ function Contact(){
                         <Container className='vh-80'>
                             <Form onSubmit={sendEmail}>
                                 <Row>Contact</Row>
-                                <Row ><Input className='formNameEmail border border-black' placeholder={"Name"} type='text' name='from_name' value={name} onChange={(e)=>setName(e.target.value)}/></Row>
-                                <Row><Input className='formNameEmail border border-black' placeholder={"E-Mail"} type='text' value={eMail} name='from_email' onChange={(e)=>setEMail(e.target.value)}/></Row>
-                                <Row><textarea className='formMessage border border-black' placeholder={"Message"} type='text' name='message' value={message} onChange={(e)=>setMessage(e.target.value)} style={{resize:'none'}}/></Row>
+                                <Row ><Input className='formNameEmail border border-black' placeholder={"Name"} type='text' name='from_name'/></Row>
+                                <Row><Input className='formNameEmail border border-black' placeholder={"E-Mail"} type='text' name='from_email'/></Row>
+                                <Row><textarea className='formMessage border border-black' placeholder={"Message"} type='text' name='message' style={{resize:'none'}}/></Row>
                                 <Row><Input type='submit' value='Send Email' className=' bg-secondary border border-black submitButton'/></Row>
                             </Form>
                         </Container>
