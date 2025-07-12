@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SaveTheBees from './images/SaveTheBees.jpg'
 import NightClubs from './images/NightClub.jpg'
 import ChatRoom from './images/ChatRoom.jpg'
-import HabitTracker from './images/HabitTracker.PNG'
+import KaizenHabits from './images/KaizenHabits.PNG'
 import Professional from './images/Professional.jpg'
 import SkillImages from './data/SkillImages';
 
@@ -30,7 +30,7 @@ function Home() {
         <h1 className='my-3'>Recent Projects - <a href='https://github.com/ConnerDeFeo/' rel="noreferrer" target="_blank" className="githubLink">Github</a></h1>
         <Container className='mw-100'>
             <Row>
-              {Project(HabitTracker,"kaizenHabits",<>HabitTracker - <em>Personal</em></>,<>2025</>)}
+              {Project(KaizenHabits,"kaizenHabits",<>KaizenHabits - <em>Personal</em></>,<>2025</>)}
               {Project(SaveTheBees,"saveTheBees",<>Save The Bees - <em>Intro to SWEN</em></>,<>2024</>)}
             </Row>
             <Row>
