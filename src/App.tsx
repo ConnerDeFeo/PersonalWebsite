@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Github, Linkedin, Download, Mail, User, Code, Briefcase, ChevronDown } from 'lucide-react';
 
 function App() {
