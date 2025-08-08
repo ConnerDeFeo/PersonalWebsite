@@ -6,24 +6,21 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ['home', 'about', 'contact'];
+      const scrollPosition = window.scrollY + window.innerHeight / 3; // trigger earlier
 
+      let current = 'home';
       for (const section of sections) {
         const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const height = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + height) {
-            setActiveSection(section);
-            break;
-          }
+        if (element && scrollPosition >= element.offsetTop) {
+          current = section;
         }
       }
+      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // run on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
