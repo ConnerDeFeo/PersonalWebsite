@@ -227,7 +227,7 @@ function App() {
       <footer className="py-8 bg-slate-900 border-t border-slate-800">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p className="text-slate-400">
-            © 2025 John Doe. Built with React and Tailwind CSS.
+            © 2025 Conner DeFeo. Built with React and Tailwind CSS.
           </p>
         </div>
       </footer>
