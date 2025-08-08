@@ -190,7 +190,7 @@ function App() {
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <a
-              href="mailto:john@example.com"
+              href="mailto:jjd2843@g.rit.edu"
               className="flex flex-col items-center p-8 bg-slate-900 rounded-xl hover:bg-slate-700 transition-all duration-300 transform hover:scale-105"
             >
               <Mail className="text-blue-400 mb-4" size={48} />
