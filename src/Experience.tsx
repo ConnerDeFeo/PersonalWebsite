@@ -10,18 +10,41 @@ interface ExperienceItem {
 }
 
 export const EXPERIENCES: ExperienceItem[] = [
-  // Add your experiences here. Example:
-  // {
-  //   name: "Company Name",
-  //   startDate: "Jan 2024",
-  //   endDate: "May 2024",
-  //   position: "Software Engineer Intern",
-  //   image: "/path/to/logo.png",
-  //   bullets: [
-  //     "Built X feature using Y technology",
-  //     "Improved performance of Z by N%",
-  //   ]
-  // }
+  {
+    name: "Accessible Learning Labs",
+    startDate: "Jan 2026",
+    endDate: "May 2026",
+    position: "Software Engineer Team Lead",
+    image: "/ALL.svg",
+    bullets: [
+      "Lead a team of 3 software engineers using Agile methodologies to design and implement educational labs on AI bias and hallucinations",
+      "Architected and developed full-stack features using React, Node.js, and PostgreSQL for deployment across 9 academic institutions",
+      "Coordinated sprint planning, task breakdown, and code reviews to ensure work was done fast while maintaining high quality",
+    ],
+  },
+  {
+    name: "Rochester Regional Health",
+    startDate: "Aug 2025",
+    endDate: "Jan 2026",
+    position: "Software Engineer Co-op",
+    image: "RRH.svg",
+    bullets: [
+      "Implemented CI/CD automation (GitHub Actions, RenovateBot, NUnit), cutting maintenance effort by 15–20%",
+      "Refactored and optimized 30+ .NET services, reducing backend execution time by 60%+ on critical paths",
+      "Consistently delivered sprint work 20–40% ahead of estimates",
+    ],
+  },
+  {
+    name: "Accessible Learning Labs",
+    startDate: "Jan 2025",
+    endDate: "May 2025",
+    position: "Software Engineer",
+    image: "ALL.svg",
+    bullets: [
+      "Built a research web platform (React, Node.js, PostgreSQL) used by 600+ participants and adopted for recurring studies",
+      "Presented at CCNSE on the impact of accessible software in education and research",
+    ],
+  },
 ];
 
 export default function Experience() {
@@ -48,7 +71,7 @@ export default function Experience() {
                     <img
                       src={exp.image}
                       alt={exp.name}
-                      className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                      className="w-16 h-16 rounded-lg object-contain flex-shrink-0 bg-white p-2"
                     />
                   ) : (
                     <div className="w-16 h-16 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">

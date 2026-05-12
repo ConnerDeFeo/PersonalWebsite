@@ -13,27 +13,27 @@ export const PROJECTS: Project[] = [
     name: "PeakFlow",
     description: "AI phone receptionist for roofing contractors that catches missed calls and books appointments. Dual-LLM architecture handles live conversation while a background model extracts structured job data into DynamoDB.",
     image: "/PeakFlowLogo.png",
-    technologies: ["React (TS)", "FastAPI", "AWS", "Terraform", "DynamoDB", "SES", "EC2", "xAI Grok", "Twilio"],
+    technologies: ["React (TS)", "FastAPI", "Terraform", "xAI Grok", "Twilio", "AWS", "EC2", "SES", "Lambda", "DynamoDB"],
     link: "https://peakflowaiautomations.com",
   },
   {
     name: "FinDiff",
     description: "AI-powered SEC 10-K analysis tool. Parses and chunks filings to prevent context loss, caches per-section summaries in S3, and serves pre-processed data on repeat queries — improving accuracy, latency, and cost.",
-    image: "",
-    technologies: ["React (TS)", "Python", "AWS", "Terraform", "DynamoDB", "S3"],
+    image: "/FinDiffLogo.jpg",
+    technologies: ["React (TS)", "Python", "Terraform", "AWS", "DynamoDB", "Lambda", "S3", "Bedrock", "Iam", "Cognito"],
     link: "https://findiff.com",
   },
   {
     name: "TrackMe",
     description: "Mobile app replacing paper and email logs for a track coach. Structured in-app submissions feed a centralized dashboard, increasing recorded practice data by ~600% and grew to 20 DAUs.",
-    image: "",
-    technologies: ["React Native", "Expo", "Python", "AWS", "Terraform", "PostgreSQL", "Docker"],
+    image: "/TrackMeLogo.png",
+    technologies: ["React Native", "Expo", "Python", "Terraform", "PostgreSQL", "Docker", "AWS", "RDS", "Lambda"],
   },
   {
     name: "Kaizen Habits",
     description: "Habit tracking web app with streak tracking, progress history, friend accountability, and AI-generated recommendations based on user behavior.",
-    image: "",
-    technologies: ["React (TS)", "C# ASP.NET", "AWS EC2", "Docker"]
+    image: "/KaizenHabits.png",
+    technologies: ["React (TS)", "C# ASP.NET", "Docker", "MongoDB", "AWS", "EC2"]
   },
 ];
 
