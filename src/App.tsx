@@ -4,15 +4,24 @@ import { Github, Linkedin, Download, Mail, User, Code, Briefcase, ChevronDown } 
 import Projects from './Projects';
 import Experience from './Experience';
 
+function NavDot({ active }: { active: boolean }) {
+  if (!active) return null;
+  return (
+    <span className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-indigo-400" />
+  );
+}
+
 function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('home');
+  const [scrolled, setScrolled] = useState(false);
   const isHome = location.pathname === '/';
 
   useEffect(() => {
-    if (!isHome) return;
     const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+      if (!isHome) return;
       const sections = ['home', 'about', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 3;
       let current = 'home';
@@ -30,41 +39,51 @@ function Navigation() {
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   const handleContactClick = () => {
-    if (isHome) {
-      scrollTo('contact');
-    } else {
-      navigate('/', { state: { scrollTo: 'contact' } });
-    }
+    if (isHome) scrollTo('contact');
+    else navigate('/', { state: { scrollTo: 'contact' } });
   };
 
-  const btnClass = (active: boolean) =>
-    `px-4 py-2 rounded-lg transition-all duration-300 ${
-      active ? 'bg-blue-600 text-white' : 'text-slate-300 hover:text-white hover:bg-slate-800'
+  const navClass = (active: boolean) =>
+    `relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+      active ? 'text-white' : 'text-slate-500 hover:text-slate-200'
     }`;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800 z-50">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#080b12]/90 backdrop-blur-xl border-b border-white/[0.06]'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold text-blue-400">Portfolio</div>
-          <div className="flex space-x-8">
+          <div className="text-xl font-bold tracking-tight">
+            <span className="text-white">C</span>
+            <span className="text-indigo-400">D</span>
+          </div>
+          <div className="flex items-center gap-1">
             <button
               onClick={() => (isHome ? scrollTo('home') : navigate('/'))}
-              className={btnClass(isHome && activeSection === 'home')}
+              className={navClass(isHome && activeSection === 'home')}
             >
               Home
+              <NavDot active={isHome && activeSection === 'home'} />
             </button>
-            <Link to="/projects" className={btnClass(location.pathname === '/projects')}>
+            <Link to="/projects" className={navClass(location.pathname === '/projects')}>
               Projects
+              <NavDot active={location.pathname === '/projects'} />
             </Link>
-            <Link to="/experience" className={btnClass(location.pathname === '/experience')}>
+            <Link to="/experience" className={navClass(location.pathname === '/experience')}>
               Experience
+              <NavDot active={location.pathname === '/experience'} />
             </Link>
             <button
               onClick={handleContactClick}
-              className={btnClass(isHome && activeSection === 'contact')}
+              className={navClass(isHome && activeSection === 'contact')}
             >
               Contact
+              <NavDot active={isHome && activeSection === 'contact'} />
             </button>
           </div>
         </div>
@@ -87,155 +106,239 @@ function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="mb-8">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Conner DeFeo
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Full-Stack Developer passionate about modern cloud technologies and scalable web applications with AI integrations.
-            </p>
+      {/* Hero */}
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Ambient orbs */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-600/[0.12] rounded-full blur-[100px] animate-pulse" />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-violet-600/[0.09] rounded-full blur-[100px] animate-pulse"
+            style={{ animationDelay: '1.5s' }}
+          />
+          <div
+            className="absolute top-1/2 right-1/3 w-[300px] h-[300px] bg-cyan-500/[0.06] rounded-full blur-[80px] animate-pulse"
+            style={{ animationDelay: '3s' }}
+          />
+        </div>
+
+        {/* Subtle dot grid */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
+          {/* Status badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-10 tracking-wide">
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+            Available for new opportunities
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
+          <h1 className="text-7xl md:text-9xl font-extrabold tracking-tighter mb-6 leading-none">
+            <span className="gradient-text">Conner</span>
+            <br />
+            <span className="gradient-text">DeFeo</span>
+          </h1>
+
+          <p className="text-slate-400 text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-12">
+            Full-Stack Developer building modern cloud applications and intelligent systems with AI integrations.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
               href="https://github.com/ConnerDeFeo"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-6 py-3 bg-slate-900 hover:bg-slate-700 rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.08] text-slate-300 hover:text-white hover:bg-white/[0.1] hover:border-white/[0.15] transition-all duration-200 text-sm font-medium w-full sm:w-auto justify-center"
             >
-              <Github size={20} />
-              <span>GitHub</span>
+              <Github size={17} />
+              GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/conner-jack-defeo"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white transition-all duration-200 text-sm font-medium shadow-lg shadow-indigo-500/25 w-full sm:w-auto justify-center"
             >
-              <Linkedin size={20} />
-              <span>LinkedIn</span>
+              <Linkedin size={17} />
+              LinkedIn
             </a>
             <a
-              href="https://drive.google.com/file/d/1kNQ1leiMq9Io0Uc6jvgZSdGbA_c2Jso8/view?usp=sharing"
+              href="https://drive.google.com/file/d/1RFEyk_cdvw1Q3YhDzoLTVkgxhdGzstrg/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl bg-white/[0.06] border border-white/[0.08] text-slate-300 hover:text-white hover:bg-white/[0.1] hover:border-white/[0.15] transition-all duration-200 text-sm font-medium w-full sm:w-auto justify-center"
             >
-              <Download size={20} />
-              <span>Download Resume</span>
+              <Download size={17} />
+              Resume
             </a>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronDown size={32} className="text-slate-400" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600">
+          <span className="text-[10px] tracking-[0.25em] uppercase font-medium">Scroll</span>
+          <ChevronDown size={14} className="animate-bounce" />
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-slate-900">
+      {/* About */}
+      <section id="about" className="py-28 relative">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-blue-400">About Me</h2>
-            <p className="text-slate-300 text-lg max-w-3xl mx-auto">
-              I'm a passionate developer with expertise in modern web technologies and a love for creating innovative solutions.
+          <div className="mb-16">
+            <p className="section-label">About</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+              Building things that matter
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
+              Pursuing a B.S. in Software Engineering at RIT with two years of professional experience shipping production software.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4 p-6 bg-slate-900 rounded-xl hover:bg-slate-700 transition-colors duration-300">
-                <User className="text-blue-400" size={32} />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Background</h3>
-                  <p className="text-slate-300">Pursuing a B.S. in Software Engineering at RIT, with two years of hands-on experience in software development.</p>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="space-y-4">
+              {([
+                {
+                  icon: <User size={18} />,
+                  color: 'text-indigo-400',
+                  bg: 'bg-indigo-500/10 border-indigo-500/20',
+                  label: 'Background',
+                  text: 'Pursuing a B.S. in Software Engineering at RIT, with two years of hands-on experience in software development.',
+                },
+                {
+                  icon: <Code size={18} />,
+                  color: 'text-cyan-400',
+                  bg: 'bg-cyan-500/10 border-cyan-500/20',
+                  label: 'Expertise',
+                  text: 'Specialized in React, TypeScript, Node.js, and AWS with a focus on scalable full-stack architecture.',
+                },
+                {
+                  icon: <Briefcase size={18} />,
+                  color: 'text-violet-400',
+                  bg: 'bg-violet-500/10 border-violet-500/20',
+                  label: 'Experience',
+                  text: 'Worked with Accessible Learning Labs, Rochester Regional Health, and Linde Gases.',
+                },
+              ] as const).map(({ icon, color, bg, label, text }) => (
+                <div
+                  key={label}
+                  className="flex items-start gap-4 p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-[#0d1117] transition-colors duration-200"
+                >
+                  <div className={`p-2.5 rounded-xl border flex-shrink-0 ${bg} ${color}`}>{icon}</div>
+                  <div>
+                    <h3 className="text-white font-semibold text-sm mb-1">{label}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{text}</p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex items-center space-x-4 p-6 bg-slate-900 rounded-xl hover:bg-slate-700 transition-colors duration-300">
-                <Code className="text-emerald-400" size={32} />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Expertise</h3>
-                  <p className="text-slate-300">Specialized in React, TypeScript, Node.js, and AWS technologies.</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4 p-6 bg-slate-900 rounded-xl hover:bg-slate-700 transition-colors duration-300">
-                <Briefcase className="text-purple-400" size={32} />
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Experience</h3>
-                  <p className="text-slate-300">Worked with Accessible Learning Labs, Rochester Regional Health, and Linde Gases.</p>
-                </div>
-              </div>
+              ))}
             </div>
 
-            <div className="bg-slate-900 p-8 rounded-xl">
-              <h3 className="text-2xl font-bold mb-6 text-center">What I Do</h3>
-              <ul className="space-y-4">
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                  <span className="text-slate-300">Frontend Development (React, React Native, TypeScript)</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                  <span className="text-slate-300">Backend Development (Node.js, Python, C#, Java)</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                  <span className="text-slate-300">Database Design (PostgreSQL, MongoDB, DynamoDB, AWS RDS)</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                  <span className="text-slate-300">Cloud & DevOps (AWS, Docker, Terraform, Github Actions)</span>
-                </li>
-              </ul>
+            <div className="p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+              <h3 className="text-white font-semibold mb-6">Technical Skills</h3>
+              <div className="space-y-5">
+                {([
+                  {
+                    label: 'Frontend',
+                    badge: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/25',
+                    items: ['React', 'TypeScript', 'React Native', 'Tailwind'],
+                  },
+                  {
+                    label: 'Backend',
+                    badge: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/25',
+                    items: ['Node.js', 'Python', 'C#', 'Java'],
+                  },
+                  {
+                    label: 'Database',
+                    badge: 'bg-violet-500/15 text-violet-300 border-violet-500/25',
+                    items: ['PostgreSQL', 'MongoDB', 'DynamoDB'],
+                  },
+                  {
+                    label: 'Cloud & DevOps',
+                    badge: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/25',
+                    items: ['AWS', 'Docker', 'Terraform', 'GitHub Actions'],
+                  },
+                ] as const).map(({ label, badge, items }) => (
+                  <div key={label}>
+                    <p className="text-slate-600 text-[10px] font-semibold uppercase tracking-[0.15em] mb-2">{label}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {items.map((item) => (
+                        <span key={item} className={`px-2.5 py-1 text-xs rounded-lg border font-medium ${badge}`}>
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-slate-800">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-8 text-blue-400">Let's Connect</h2>
-          <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and collaborations. Feel free to reach out!
-          </p>
+      {/* Contact */}
+      <section id="contact" className="py-28 relative">
+        {/* Subtle top separator */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-px">
+          <div className="absolute -top-px left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-indigo-500/30 to-transparent" />
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <a
-              href="mailto:jjd2843@g.rit.edu"
-              className="flex flex-col items-center p-8 bg-slate-900 rounded-xl hover:bg-slate-700 transition-all duration-300 transform hover:scale-105"
-            >
-              <Mail className="text-blue-400 mb-4" size={48} />
-              <h3 className="text-xl font-semibold mb-2">Email</h3>
-              <p className="text-slate-300">jjd2843@g.rit.edu</p>
-            </a>
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="section-label">Contact</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Let's work together</h2>
+            <p className="text-slate-400 text-lg max-w-md mx-auto">
+              Always open to new opportunities and interesting projects. Let's talk.
+            </p>
+          </div>
 
-            <a
-              href="https://github.com/ConnerDeFeo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center p-8 bg-slate-900 rounded-xl hover:bg-slate-700 transition-all duration-300 transform hover:scale-105"
-            >
-              <Github className="text-emerald-400 mb-4" size={48} />
-              <h3 className="text-xl font-semibold mb-2">GitHub</h3>
-              <p className="text-slate-300">View my projects</p>
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/conner-jack-defeo/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center p-8 bg-slate-900 rounded-xl hover:bg-slate-700 transition-all duration-300 transform hover:scale-105"
-            >
-              <Linkedin className="text-purple-400 mb-4" size={48} />
-              <h3 className="text-xl font-semibold mb-2">LinkedIn</h3>
-              <p className="text-slate-300">Connect with me</p>
-            </a>
+          <div className="grid md:grid-cols-3 gap-5">
+            {([
+              {
+                href: 'mailto:jjd2843@g.rit.edu',
+                icon: <Mail size={22} />,
+                color: 'text-indigo-400',
+                bg: 'bg-indigo-500/10 border-indigo-500/20',
+                label: 'Email',
+                value: 'jjd2843@g.rit.edu',
+                external: false,
+              },
+              {
+                href: 'https://github.com/ConnerDeFeo',
+                icon: <Github size={22} />,
+                color: 'text-slate-300',
+                bg: 'bg-white/[0.06] border-white/[0.08]',
+                label: 'GitHub',
+                value: 'View my work',
+                external: true,
+              },
+              {
+                href: 'https://www.linkedin.com/in/conner-jack-defeo/',
+                icon: <Linkedin size={22} />,
+                color: 'text-cyan-400',
+                bg: 'bg-cyan-500/10 border-cyan-500/20',
+                label: 'LinkedIn',
+                value: 'Connect with me',
+                external: true,
+              },
+            ] as const).map(({ href, icon, color, bg, label, value, external }) => (
+              <a
+                key={label}
+                href={href}
+                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="group flex flex-col items-center p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-[#0d1117] hover:border-white/[0.1] transition-all duration-300 hover:-translate-y-1"
+              >
+                <div
+                  className={`p-4 rounded-2xl border mb-4 transition-transform duration-300 group-hover:scale-110 ${bg} ${color}`}
+                >
+                  {icon}
+                </div>
+                <h3 className="text-white font-semibold text-sm mb-1">{label}</h3>
+                <p className="text-slate-500 text-xs">{value}</p>
+              </a>
+            ))}
           </div>
         </div>
       </section>
@@ -246,16 +349,20 @@ function HomePage() {
 function App() {
   return (
     <HashRouter>
-      <div className="bg-slate-800 text-white min-h-screen">
+      <div className="bg-[#080b12] text-white min-h-screen">
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/experience" element={<Experience />} />
         </Routes>
-        <footer className="py-8 bg-slate-900 border-t border-slate-800">
-          <div className="max-w-6xl mx-auto px-6 text-center">
-            <p className="text-slate-400">© 2025 Conner DeFeo. Built with React and Tailwind CSS.</p>
+        <footer className="py-8 border-t border-white/[0.05]">
+          <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+            <div className="text-xl font-bold tracking-tight">
+              <span className="text-white">C</span>
+              <span className="text-indigo-400">D</span>
+            </div>
+            <p className="text-slate-600 text-sm">© 2025 Conner DeFeo · Built with React & Tailwind CSS</p>
           </div>
         </footer>
       </div>

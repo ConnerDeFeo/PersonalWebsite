@@ -11,6 +11,14 @@ interface ExperienceItem {
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
+    name: "Linde",
+    startDate: "May 2026",
+    endDate: "Present",
+    position: "Computer Systems Intern",
+    image: "/Linde.jpg",
+    bullets: [],
+  },
+  {
     name: "Accessible Learning Labs",
     startDate: "Jan 2026",
     endDate: "May 2026",
@@ -49,57 +57,65 @@ export const EXPERIENCES: ExperienceItem[] = [
 
 export default function Experience() {
   return (
-    <div className="pt-24 pb-20 bg-slate-800 min-h-screen">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-blue-400">Experience</h2>
-          <p className="text-slate-300 text-lg max-w-3xl mx-auto">
-            My professional journey and work history.
-          </p>
+    <div className="pt-24 pb-28 bg-[#080b12] min-h-screen">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="mb-16">
+          <p className="section-label">Career</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Experience</h2>
+          <p className="text-slate-400 text-lg">My professional journey and work history.</p>
         </div>
 
-        {EXPERIENCES.length === 0 ? (
-          <div className="text-center text-slate-400 py-20">
-            <p className="text-xl">No experience entries yet — add entries to EXPERIENCES in Experience.tsx.</p>
-          </div>
-        ) : (
-          <div className="space-y-8">
+        <div className="relative">
+          {/* Vertical timeline rail */}
+          <div className="absolute left-6 top-6 bottom-0 w-px bg-gradient-to-b from-indigo-500/40 via-violet-500/20 to-transparent" />
+
+          <div className="space-y-6">
             {EXPERIENCES.map((exp, index) => (
-              <div key={index} className="bg-slate-900 rounded-xl p-8 hover:bg-slate-700 transition-colors duration-300">
-                <div className="flex items-start space-x-6">
-                  {exp.image ? (
-                    <img
-                      src={exp.image}
-                      alt={exp.name}
-                      className="w-16 h-16 rounded-lg object-contain flex-shrink-0 bg-white p-2"
-                    />
-                  ) : (
-                    <div className="w-16 h-16 bg-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Briefcase className="text-blue-400" size={28} />
-                    </div>
-                  )}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                      <h3 className="text-xl font-semibold text-white">{exp.name}</h3>
-                      <span className="text-slate-400 text-sm whitespace-nowrap">
+              <div key={index} className="relative flex gap-8">
+                {/* Timeline node */}
+                <div className="relative flex-shrink-0 z-10">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0d1117] border border-white/[0.08] flex items-center justify-center">
+                    {exp.image ? (
+                      <img
+                        src={exp.image}
+                        alt={exp.name}
+                        className="w-7 h-7 object-contain rounded-sm"
+                      />
+                    ) : (
+                      <Briefcase size={18} className="text-indigo-400" />
+                    )}
+                  </div>
+                </div>
+
+                {/* Card */}
+                <div className="flex-1 pb-6">
+                  <div className="p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-[#0d1117] hover:border-white/[0.1] transition-all duration-300">
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-1">
+                      <h3 className="text-white font-bold text-lg leading-tight">{exp.name}</h3>
+                      <span className="text-slate-500 text-xs bg-white/[0.04] border border-white/[0.06] px-2.5 py-1 rounded-full whitespace-nowrap">
                         {exp.startDate} – {exp.endDate}
                       </span>
                     </div>
-                    <p className="text-blue-400 font-medium mb-4">{exp.position}</p>
-                    <ul className="space-y-2">
-                      {exp.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-start space-x-3">
-                          <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-slate-300 text-sm leading-relaxed">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-indigo-400 text-sm font-medium mb-4">{exp.position}</p>
+
+                    {exp.bullets.length > 0 ? (
+                      <ul className="space-y-2.5">
+                        {exp.bullets.map((bullet, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400/50 mt-[7px] flex-shrink-0" />
+                            <span className="text-slate-400 text-sm leading-relaxed">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-slate-600 text-sm italic">Role just started — more to come.</p>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
