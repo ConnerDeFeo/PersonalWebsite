@@ -98,7 +98,7 @@ export default function Experience() {
                     </div>
                     <p className="text-indigo-400 text-sm font-medium mb-4">{exp.position}</p>
 
-                    {exp.bullets.length > 0 ? (
+                    {exp.bullets.length > 0 && (
                       <ul className="space-y-2.5">
                         {exp.bullets.map((bullet, i) => (
                           <li key={i} className="flex items-start gap-3">
@@ -107,8 +107,6 @@ export default function Experience() {
                           </li>
                         ))}
                       </ul>
-                    ) : (
-                      <p className="text-slate-600 text-sm italic">Role just started — more to come.</p>
                     )}
                   </div>
                 </div>

@@ -134,7 +134,7 @@ const HomePage = ()=> {
                   {
                     label: 'Frontend',
                     badge: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/25',
-                    items: ['React', 'TypeScript', 'React Native', 'Tailwind'],
+                    items: ['React', 'TypeScript', 'React Native', 'Tailwind', 'CSS'],
                   },
                   {
                     label: 'Backend',
@@ -144,7 +144,7 @@ const HomePage = ()=> {
                   {
                     label: 'Database',
                     badge: 'bg-violet-500/15 text-violet-300 border-violet-500/25',
-                    items: ['PostgreSQL', 'MongoDB', 'DynamoDB'],
+                    items: ['PostgreSQL', 'MongoDB', 'DynamoDB', 'RDS'],
                   },
                   {
                     label: 'Cloud & DevOps',
