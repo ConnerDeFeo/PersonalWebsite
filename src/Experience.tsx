@@ -74,12 +74,12 @@ export default function Experience() {
               <div key={index} className="relative flex gap-8">
                 {/* Timeline node */}
                 <div className="relative flex-shrink-0 z-10">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0d1117] border border-white/[0.08] flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-white border flex items-center justify-center">
                     {exp.image ? (
                       <img
                         src={exp.image}
                         alt={exp.name}
-                        className="w-7 h-7 object-contain rounded-sm"
+                        className="w-12 h-12 object-contain rounded-sm"
                       />
                     ) : (
                       <Briefcase size={18} className="text-indigo-400" />

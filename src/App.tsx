@@ -22,7 +22,7 @@ function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
       if (!isHome) return;
-      const sections = ['home', 'about', 'contact'];
+      const sections = ['home', 'about'];
       const scrollPosition = window.scrollY + window.innerHeight / 3;
       let current = 'home';
       for (const section of sections) {
@@ -36,13 +36,6 @@ function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHome]);
 
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-
-  const handleContactClick = () => {
-    if (isHome) scrollTo('contact');
-    else navigate('/', { state: { scrollTo: 'contact' } });
-  };
-
   const navClass = (active: boolean) =>
     `relative px-4 py-2 text-sm font-medium transition-colors duration-200 ${
       active ? 'text-white' : 'text-slate-500 hover:text-slate-200'
@@ -52,7 +45,7 @@ function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#080b12]/90 backdrop-blur-xl border-b border-white/[0.06]'
+          ? 'bg-[#080b12]/90 backdrop-blur-xl'
           : 'bg-transparent'
       }`}
     >
@@ -64,7 +57,7 @@ function Navigation() {
           </div>
           <div className="flex items-center gap-1">
             <button
-              onClick={() => (isHome ? scrollTo('home') : navigate('/'))}
+              onClick={() => navigate('/')}
               className={navClass(isHome && activeSection === 'home')}
             >
               Home
@@ -78,13 +71,7 @@ function Navigation() {
               Experience
               <NavDot active={location.pathname === '/experience'} />
             </Link>
-            <button
-              onClick={handleContactClick}
-              className={navClass(isHome && activeSection === 'contact')}
-            >
-              Contact
-              <NavDot active={isHome && activeSection === 'contact'} />
-            </button>
+
           </div>
         </div>
       </div>
@@ -93,17 +80,6 @@ function Navigation() {
 }
 
 function HomePage() {
-  const location = useLocation();
-
-  useEffect(() => {
-    const state = location.state as { scrollTo?: string } | null;
-    if (!state?.scrollTo) return;
-    const timeout = setTimeout(() => {
-      document.getElementById(state.scrollTo!)?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-    return () => clearTimeout(timeout);
-  }, [location.state]);
-
   return (
     <>
       {/* Hero */}
@@ -132,12 +108,6 @@ function HomePage() {
         />
 
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-10 tracking-wide">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-            Available for new opportunities
-          </div>
-
           <h1 className="text-7xl md:text-9xl font-extrabold tracking-tighter mb-6 leading-none">
             <span className="gradient-text">Conner</span>
             <br />
@@ -362,7 +332,7 @@ function App() {
               <span className="text-white">C</span>
               <span className="text-indigo-400">D</span>
             </div>
-            <p className="text-slate-600 text-sm">© 2025 Conner DeFeo · Built with React & Tailwind CSS</p>
+            <p className="text-slate-600 text-sm">© 2026 Conner DeFeo · Built with React & Tailwind CSS</p>
           </div>
         </footer>
       </div>
