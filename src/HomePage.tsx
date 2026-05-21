@@ -70,7 +70,7 @@ const HomePage = ()=> {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600">
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-600">
           <span className="text-[10px] tracking-[0.25em] uppercase font-medium">Scroll</span>
           <ChevronDown size={14} className="animate-bounce" />
         </div>
