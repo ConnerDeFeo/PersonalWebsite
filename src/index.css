@@ -1,24 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --orange: #ff5500;
+  --orange-bright: #ff7a1f;
+  --orange-ink: #db4a00; /* readable orange text on white */
+  --orange-deep: #c23e00;
+  --bg: #ffffff;
+  --panel: #fafafa;
+  --ink: #14171c;
+  --grid: rgba(255, 85, 0, 0.07);
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #080b12;
+    background-color: var(--bg);
+    color: var(--ink);
+  }
+
+  /* Hide native cursor on devices that support fine pointers (custom cursor takes over) */
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
   }
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: #1e2535 transparent;
+    scrollbar-color: #ffb38a transparent;
   }
 
   *::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
+    height: 6px;
   }
 
   *::-webkit-scrollbar-track {
@@ -26,20 +50,269 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background: #1e2535;
+    background: linear-gradient(180deg, var(--orange), var(--orange-deep));
     border-radius: 3px;
+  }
+
+  ::selection {
+    background: rgba(255, 85, 0, 0.22);
+    color: var(--orange-deep);
   }
 }
 
 @layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  /* ---- Text treatments ---- */
+  .text-orange {
+    color: var(--orange-ink);
+  }
+
   .gradient-text {
-    background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 45%, #a5f3fc 100%);
+    background: linear-gradient(135deg, #14171c 0%, #14171c 35%, var(--orange) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
+  /* On white, "glow" reads as a hot orange aura/soft shadow */
+  .glow-text {
+    text-shadow:
+      0 0 1px rgba(255, 85, 0, 0.35),
+      0 2px 18px rgba(255, 85, 0, 0.35),
+      0 0 40px rgba(255, 85, 0, 0.2);
+  }
+
+  .glow-text-soft {
+    text-shadow:
+      0 1px 12px rgba(255, 85, 0, 0.3),
+      0 0 24px rgba(255, 85, 0, 0.15);
+  }
+
+  .glow-box {
+    box-shadow:
+      0 0 0 1px rgba(255, 85, 0, 0.3),
+      0 12px 30px rgba(255, 85, 0, 0.22),
+      0 0 60px rgba(255, 85, 0, 0.1);
+  }
+
   .section-label {
-    @apply text-indigo-400 text-xs font-semibold tracking-[0.2em] uppercase mb-3;
+    @apply font-mono text-[11px] font-semibold tracking-[0.3em] uppercase mb-4;
+    color: var(--orange-ink);
+  }
+
+  /* ---- Backgrounds: F1 telemetry grid + scanlines on white ---- */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .bg-grid-animated {
+    background-image:
+      linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: grid-drift 24s linear infinite;
+  }
+
+  .bg-scanlines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 85, 0, 0.03) 0px,
+      rgba(255, 85, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  }
+
+  /* Fade content into the white page at the edges */
+  .bg-vignette {
+    background: radial-gradient(ellipse 85% 65% at 50% 35%, transparent 0%, var(--bg) 92%);
+  }
+}
+
+/* ===================== Keyframes ===================== */
+
+/* Top load progress bar drawing across the page */
+@keyframes draw-line {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Slow scrolling grid for parallax/telemetry feel */
+@keyframes grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+/* Blinking terminal cursor */
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Glitch flicker for the hero name */
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.6;
+  }
+  43% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.78;
+  }
+  46% {
+    opacity: 1;
+  }
+}
+
+.animate-flicker {
+  animation: flicker 5s infinite steps(1);
+}
+
+/* Staggered reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skill tag shimmer sweep */
+@keyframes shimmer {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+/* Pulsing live dot */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 85, 0, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 85, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 85, 0, 0);
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+/* ===================== Custom cursor ===================== */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 85, 0, 0.7);
+}
+
+/* crosshair ring that trails */
+.cursor-ring {
+  width: 30px;
+  height: 30px;
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+.cursor-ring::before,
+.cursor-ring::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 85, 0, 0.55);
+}
+
+/* horizontal + vertical crosshair lines */
+.cursor-ring::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.cursor-ring::after {
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.cursor-ring.is-active {
+  width: 44px;
+  height: 44px;
+}
+
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* Reduced motion: respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-flicker,
+  .bg-grid-animated,
+  .pulse-ring {
+    animation: none !important;
+  }
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }

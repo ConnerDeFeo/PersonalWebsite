@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react';
+import Reveal from './components/Reveal';
 
 interface Project {
   name: string;
@@ -39,73 +40,89 @@ export const PROJECTS: Project[] = [
 
 export default function Projects() {
   return (
-    <div className="pt-24 pb-28 bg-[#080b12] min-h-screen">
+    <div className="pt-28 pb-28 min-h-screen">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="mb-16">
-          <p className="section-label">Work</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Projects</h2>
-          <p className="text-slate-400 text-lg max-w-2xl">
-            A collection of projects I've built and contributed to.
+        <Reveal className="mb-16">
+          <p className="section-label">// Work</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#14171c] mb-4 tracking-tight">
+            Projects
+          </h2>
+          <p className="text-slate-500 text-lg max-w-2xl">
+            <span className="font-mono text-[#ff5500]/70 text-sm">{`> `}</span>
+            A collection of systems I've designed, built, and shipped.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-5">
           {PROJECTS.map((project, index) => (
-            <div
-              key={index}
-              className="group flex flex-col rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-[#0d1117] hover:border-white/[0.1] overflow-hidden transition-all duration-300 hover:-translate-y-1"
-            >
-              {/* Image area */}
-              <div className="relative h-44 bg-[#0d1117] flex items-center justify-center p-6 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.04] to-violet-500/[0.04]" />
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="relative max-h-full max-w-full object-contain opacity-85 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                ) : (
-                  <span className="text-slate-700 text-sm">No image</span>
-                )}
-                {project.link && (
-                  <div className="absolute top-3 right-3">
-                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-[10px] font-semibold tracking-wide">
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-                      LIVE
-                    </span>
-                  </div>
-                )}
-              </div>
+            <Reveal key={index} delay={(index % 2) * 90}>
+              <div
+                data-cursor="hover"
+                className="group relative flex flex-col h-full rounded-xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-[#ff5500]/50 hover:shadow-[0_16px_40px_rgba(255,85,0,0.16)]"
+              >
+                {/* Orange border slides in from the left */}
+                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#ff7a1f] to-[#c23e00] scale-y-0 origin-top group-hover:scale-y-100 transition-transform duration-500 z-20" style={{ boxShadow: '0 0 12px rgba(255,85,0,0.55)' }} />
 
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-1">
-                <div className="flex items-start justify-between gap-3 mb-3">
-                  <h3 className="text-white font-bold text-xl leading-tight">{project.name}</h3>
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-shrink-0 p-2 rounded-xl bg-white/[0.04] border border-white/[0.06] text-slate-500 hover:text-white hover:bg-white/[0.08] hover:border-white/[0.12] transition-all duration-200"
-                      aria-label={`Visit ${project.name}`}
-                    >
-                      <ExternalLink size={14} />
-                    </a>
+                {/* Image area */}
+                <div className="relative h-44 bg-[#fafafa] flex items-center justify-center p-6 overflow-hidden">
+                  <div className="absolute inset-0 bg-grid opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ff5500]/[0.05] to-transparent" />
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="relative max-h-full max-w-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:drop-shadow-[0_0_16px_rgba(255,85,0,0.35)]"
+                    />
+                  ) : (
+                    <span className="font-mono text-slate-400 text-sm">no_image</span>
                   )}
+                  {project.link && (
+                    <div className="absolute top-3 right-3">
+                      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#ff5500]/10 border border-[#ff5500]/40 text-orange font-mono text-[10px] font-semibold tracking-wider">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ff5500] pulse-ring" />
+                        LIVE
+                      </span>
+                    </div>
+                  )}
+                  {/* index marker */}
+                  <span className="absolute bottom-3 left-3 font-mono text-[10px] tracking-[0.2em] text-slate-300">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                 </div>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-1">{project.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {project.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-2.5 py-1 bg-white/[0.04] border border-white/[0.06] text-slate-400 text-xs rounded-lg font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className="text-[#14171c] font-bold text-xl leading-tight tracking-tight group-hover:text-orange transition-colors duration-300">
+                      {project.name}
+                    </h3>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-cursor="hover"
+                        className="flex-shrink-0 p-2 rounded-lg border border-[#ff5500]/25 text-slate-400 hover:text-orange hover:border-[#ff5500]/60 hover:shadow-[0_0_14px_rgba(255,85,0,0.3)] transition-all duration-200"
+                        aria-label={`Visit ${project.name}`}
+                      >
+                        <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
+                  <p className="text-slate-500 text-sm leading-relaxed mb-5 flex-1">{project.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-0.5 font-mono text-[11px] rounded border border-slate-200 bg-slate-50 text-slate-500 transition-colors duration-200 group-hover:border-[#ff5500]/20 group-hover:text-slate-700"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
