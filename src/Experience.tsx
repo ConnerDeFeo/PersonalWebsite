@@ -58,8 +58,8 @@ export const EXPERIENCES: ExperienceItem[] = [
 
 export default function Experience() {
   return (
-    <div className="pt-28 pb-28 min-h-screen">
-      <div className="max-w-3xl mx-auto px-6">
+    <div className="pt-24 pb-20 sm:pt-28 sm:pb-28 min-h-screen">
+      <div className="max-w-3xl mx-auto px-5 sm:px-6">
         <Reveal className="mb-16">
           <p className="section-label">// Career</p>
           <h2 className="text-4xl md:text-5xl font-bold text-[#14171c] mb-4 tracking-tight">Experience</h2>
@@ -72,22 +72,22 @@ export default function Experience() {
         <div className="relative">
           {/* Vertical timeline rail */}
           <div
-            className="absolute left-8 top-4 bottom-0 w-px bg-gradient-to-b from-[#ff5500] via-[#ff5500]/30 to-transparent"
+            className="absolute left-6 sm:left-8 top-4 bottom-0 w-px bg-gradient-to-b from-[#ff5500] via-[#ff5500]/30 to-transparent"
             style={{ boxShadow: '0 0 8px rgba(255,85,0,0.35)' }}
           />
 
           <div className="space-y-6">
             {EXPERIENCES.map((exp, index) => (
               <Reveal key={index} delay={index * 70}>
-                <div className="relative flex gap-6 sm:gap-8">
+                <div className="relative flex gap-4 sm:gap-8">
                   {/* Timeline node */}
                   <div className="relative flex-shrink-0 z-10">
-                    <div className="w-16 h-16 rounded-xl bg-white border border-[#ff5500]/30 flex items-center justify-center shadow-[0_4px_18px_rgba(255,85,0,0.18)]">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-white border border-[#ff5500]/30 flex items-center justify-center shadow-[0_4px_18px_rgba(255,85,0,0.18)]">
                       {exp.image ? (
                         <img
                           src={exp.image}
                           alt={exp.name}
-                          className="w-12 h-12 object-contain rounded-sm"
+                          className="w-9 h-9 sm:w-12 sm:h-12 object-contain rounded-sm"
                         />
                       ) : (
                         <Briefcase size={18} className="text-orange" />
@@ -101,7 +101,7 @@ export default function Experience() {
 
                   {/* Card */}
                   <div className="flex-1 pb-2">
-                    <div className="group relative p-6 rounded-xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:border-[#ff5500]/40 hover:shadow-[0_10px_28px_rgba(255,85,0,0.12)]">
+                    <div className="group relative p-5 sm:p-6 rounded-xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:border-[#ff5500]/40 hover:shadow-[0_10px_28px_rgba(255,85,0,0.12)]">
                       <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#ff5500] scale-y-0 origin-top group-hover:scale-y-100 transition-transform duration-300" />
                       <div className="flex flex-wrap items-start justify-between gap-3 mb-1">
                         <h3 className="text-[#14171c] font-bold text-lg leading-tight tracking-tight">{exp.name}</h3>

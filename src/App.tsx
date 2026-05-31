@@ -30,7 +30,7 @@ function App() {
         </Routes>
 
         <footer className="relative py-10 border-t border-[#ff5500]/[0.15]">
-          <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center">
             <div className="font-mono text-lg font-bold tracking-tight">
               <span className="text-[#14171c]">C</span>
               <span className="text-orange glow-text-soft">D</span>

@@ -2,7 +2,7 @@ import { Github, Linkedin, Download, Mail, User, Code, Briefcase, ChevronDown, T
 import GlitchTypewriter from './components/GlitchTypewriter';
 import Reveal from './components/Reveal';
 
-const ROLES = ['CS Student', 'Competitive Sprinter', 'Builder'];
+const ROLES = ['SWE Student', 'Competitive Sprinter', 'Builder'];
 
 const SKILLS = [
   { label: 'Frontend', items: ['React', 'TypeScript', 'React Native', 'Tailwind', 'CSS'] },
@@ -42,7 +42,7 @@ const HomePage = () => {
     <>
       {/* ============================= HERO ============================= */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="relative max-w-4xl mx-auto px-6 text-center py-28">
+        <div className="relative w-full max-w-4xl mx-auto px-5 sm:px-6 text-center py-20 sm:py-28">
           {/* HUD frame corners */}
           <span className="hidden md:block absolute -top-6 -left-2 w-6 h-6 border-t-2 border-l-2 border-[#ff5500]/50" />
           <span className="hidden md:block absolute -top-6 -right-2 w-6 h-6 border-t-2 border-r-2 border-[#ff5500]/50" />
@@ -59,7 +59,7 @@ const HomePage = () => {
           </div>
 
           {/* Glitch-typed name */}
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-[0.95] animate-flicker">
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-[0.95] animate-flicker break-words">
             <GlitchTypewriter text="Conner DeFeo" startDelay={500} className="gradient-text" />
           </h1>
 
@@ -75,7 +75,6 @@ const HomePage = () => {
 
           <p className="text-slate-500 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10">
             Full-stack developer building cloud applications and intelligent systems.
-            I chase performance — in code and on the track.
           </p>
 
           {/* CTAs */}
@@ -133,8 +132,8 @@ const HomePage = () => {
       </section>
 
       {/* ============================= ABOUT ============================= */}
-      <section id="about" className="py-28 relative">
-        <div className="max-w-6xl mx-auto px-6">
+      <section id="about" className="py-20 sm:py-28 relative">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6">
           <Reveal className="mb-16">
             <p className="section-label">// About</p>
             <h2 className="text-4xl md:text-5xl font-bold text-[#14171c] mb-4 tracking-tight">
@@ -142,8 +141,7 @@ const HomePage = () => {
             </h2>
             <p className="text-slate-500 text-lg max-w-2xl leading-relaxed">
               Pursuing a B.S. in Software Engineering at RIT with two years of professional experience
-              shipping production software. Competitive sprinter — the same drive to shave hundredths
-              off a time goes into shaving milliseconds off a request.
+              shipping production software. Shaving milliseconds off on and off the track.
             </p>
           </Reveal>
 
@@ -163,7 +161,7 @@ const HomePage = () => {
                 {
                   icon: <Zap size={18} />,
                   label: 'Drive',
-                  text: 'Competitive sprinter and relentless builder. High output, low excuses, sub-second instincts.',
+                  text: 'Competitive sprinter and relentless builder. High output, low excuses.',
                 },
                 {
                   icon: <Briefcase size={18} />,
@@ -188,7 +186,7 @@ const HomePage = () => {
             </div>
 
             <Reveal delay={120}>
-              <div className="relative p-6 rounded-xl border border-[#ff5500]/[0.18] bg-white h-full shadow-[0_4px_24px_rgba(255,85,0,0.06)]">
+              <div className="relative p-5 sm:p-6 rounded-xl border border-[#ff5500]/[0.18] bg-white h-full shadow-[0_4px_24px_rgba(255,85,0,0.06)]">
                 <div className="flex items-center gap-2 mb-6">
                   <Terminal size={15} className="text-orange" />
                   <h3 className="font-mono text-[#14171c] font-semibold text-sm tracking-wide">tech_stack</h3>
@@ -214,8 +212,8 @@ const HomePage = () => {
       </section>
 
       {/* ============================= CONTACT ============================= */}
-      <section id="contact" className="py-28 relative">
-        <div className="max-w-4xl mx-auto px-6">
+      <section id="contact" className="py-20 sm:py-28 relative">
+        <div className="max-w-4xl mx-auto px-5 sm:px-6">
           <Reveal className="text-center mb-16">
             <p className="section-label">// Contact</p>
             <h2 className="text-4xl md:text-5xl font-bold text-[#14171c] mb-4 tracking-tight">
@@ -255,7 +253,7 @@ const HomePage = () => {
                   href={href}
                   {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   data-cursor="hover"
-                  className="group relative flex flex-col items-center p-8 rounded-xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5500]/50 hover:shadow-[0_12px_30px_rgba(255,85,0,0.16)]"
+                  className="group relative flex flex-col items-center p-6 sm:p-8 rounded-xl border border-slate-200 bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#ff5500]/50 hover:shadow-[0_12px_30px_rgba(255,85,0,0.16)]"
                 >
                   <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#ff5500] scale-y-0 origin-top group-hover:scale-y-100 transition-transform duration-300" />
                   <div className="p-4 rounded-xl border border-[#ff5500]/25 bg-[#ff5500]/[0.07] text-orange mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,85,0,0.4)]">

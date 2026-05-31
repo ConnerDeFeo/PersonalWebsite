@@ -40,8 +40,8 @@ export const PROJECTS: Project[] = [
 
 export default function Projects() {
   return (
-    <div className="pt-28 pb-28 min-h-screen">
-      <div className="max-w-5xl mx-auto px-6">
+    <div className="pt-24 pb-20 sm:pt-28 sm:pb-28 min-h-screen">
+      <div className="max-w-5xl mx-auto px-5 sm:px-6">
         <Reveal className="mb-16">
           <p className="section-label">// Work</p>
           <h2 className="text-4xl md:text-5xl font-bold text-[#14171c] mb-4 tracking-tight">
@@ -91,7 +91,7 @@ export default function Projects() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col flex-1">
+                <div className="p-5 sm:p-6 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <h3 className="text-[#14171c] font-bold text-xl leading-tight tracking-tight group-hover:text-orange transition-colors duration-300">
                       {project.name}
