@@ -21,14 +21,15 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     name: "Accessible Learning Labs",
-    startDate: "Jan 2026",
-    endDate: "May 2026",
+    startDate: "Jan 2025",
+    endDate: "Present",
     position: "Software Engineer Team Lead",
     image: "/ALL.svg",
     bullets: [
       "Lead a team of 3 software engineers using Agile methodologies to design and implement educational labs on AI bias and hallucinations",
       "Architected and developed full-stack features using React, Node.js, and PostgreSQL for deployment across 9 academic institutions",
-      "Coordinated sprint planning, task breakdown, and code reviews to ensure work was done fast while maintaining high quality",
+      "Built a research web platform (React, Node.js, PostgreSQL) used by 600+ participants and adopted for recurring studies",
+      "Presented at CCNSE on the impact of accessible software in education and research",
     ],
   },
   {
@@ -41,17 +42,6 @@ export const EXPERIENCES: ExperienceItem[] = [
       "Implemented CI/CD automation (GitHub Actions, RenovateBot, NUnit), cutting maintenance effort by 15–20%",
       "Refactored and optimized 30+ .NET services, reducing backend execution time by 60%+ on critical paths",
       "Consistently delivered sprint work 20–40% ahead of estimates",
-    ],
-  },
-  {
-    name: "Accessible Learning Labs",
-    startDate: "Jan 2025",
-    endDate: "May 2025",
-    position: "Software Engineer",
-    image: "ALL.svg",
-    bullets: [
-      "Built a research web platform (React, Node.js, PostgreSQL) used by 600+ participants and adopted for recurring studies",
-      "Presented at CCNSE on the impact of accessible software in education and research",
     ],
   },
 ];
