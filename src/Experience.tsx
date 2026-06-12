@@ -28,6 +28,15 @@ export const EXPERIENCES: ExperienceItem[] = [
     bullets: [
       "Lead a team of 3 software engineers using Agile methodologies to design and implement educational labs on AI bias and hallucinations",
       "Architected and developed full-stack features using React, Node.js, and PostgreSQL for deployment across 9 academic institutions",
+    ],
+  },
+  {
+    name: "Accessible Learning Labs",
+    startDate: "Jan 2025",
+    endDate: "Jan 2026",
+    position: "Software Engineer",
+    image: "/ALL.svg",
+    bullets: [
       "Built a research web platform (React, Node.js, PostgreSQL) used by 600+ participants and adopted for recurring studies",
       "Presented at CCNSE on the impact of accessible software in education and research",
     ],
