@@ -6,9 +6,10 @@ const ROLES = ['SWE Student', 'Competitive Sprinter', 'Builder'];
 
 const SKILLS = [
   { label: 'Frontend', items: ['React', 'TypeScript', 'React Native', 'Tailwind', 'CSS'] },
-  { label: 'Backend', items: ['Node.js', 'Python', 'C#', 'Java'] },
+  { label: 'Backend', items: ['Node.js', 'Python', 'C#', 'Java', 'Go'] },
+  { label: 'AI & ML', items: ['Pytorch', 'Scikit-learn', 'LangChain'] },
   { label: 'Database', items: ['PostgreSQL', 'MongoDB', 'DynamoDB', 'RDS'] },
-  { label: 'Cloud & DevOps', items: ['AWS', 'Docker', 'Terraform', 'GitHub Actions'] },
+  { label: 'Cloud & DevOps', items: ['AWS', 'Docker', 'Terraform', 'Kubernetes', 'GitHub Actions'] },
 ] as const;
 
 const TELEMETRY = [
