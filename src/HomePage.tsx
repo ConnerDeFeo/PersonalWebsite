@@ -74,10 +74,6 @@ const HomePage = () => {
             ))}
           </div>
 
-          <p className="text-slate-500 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10">
-            Full-stack developer building cloud applications and intelligent systems.
-          </p>
-
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14">
             <a
@@ -213,16 +209,13 @@ const HomePage = () => {
       </section>
 
       {/* ============================= CONTACT ============================= */}
-      <section id="contact" className="py-20 sm:py-28 relative">
+      <section id="contact" className="py-20 sm:py-28 relative my-auto">
         <div className="max-w-4xl mx-auto px-5 sm:px-6">
           <Reveal className="text-center mb-16">
             <p className="section-label">// Contact</p>
             <h2 className="text-4xl md:text-5xl font-bold text-[#14171c] mb-4 tracking-tight">
               Let's build something <span className="text-orange glow-text-soft">fast</span>
             </h2>
-            <p className="text-slate-500 text-lg max-w-md mx-auto">
-              Always open to new opportunities and interesting problems. Let's talk.
-            </p>
           </Reveal>
 
           <div className="grid md:grid-cols-3 gap-5">
