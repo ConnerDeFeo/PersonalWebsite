@@ -21,7 +21,7 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
   {
     name: "Accessible Learning Labs",
-    startDate: "Jan 2025",
+    startDate: "Jan 2026",
     endDate: "Present",
     position: "Software Engineer Team Lead",
     image: "/ALL.svg",
