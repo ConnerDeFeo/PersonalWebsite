@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
     description: "AI phone receptionist for roofing contractors that catches missed calls and books appointments. Dual-LLM architecture handles live conversation while a background model extracts structured job data into DynamoDB.",
     image: "/PeakFlowLogo.png",
     technologies: ["React (TS)", "FastAPI", "Terraform", "xAI Grok", "Twilio", "AWS", "EC2", "SES", "Lambda", "DynamoDB"],
-    link: "https://peakflowaiautomations.com",
+    link: "https://peakflow.connerdefeo.com",
   },
   {
     name: "FinDiff",
